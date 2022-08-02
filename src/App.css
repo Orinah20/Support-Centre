@@ -1,4 +1,29 @@
-html{
+.header{
+    height: 3rem;
+    width: 100vw;
+    background-color: #003051;
+    display: flex;
+}
+
+.header_logo, .header_information{
+    padding: 0.5rem 1rem;
+}
+
+.header_avatar{
+    padding-left: 0.5rem;
+}
+
+.header_information{
+    display: flex;
+    width: 100vw;
+    justify-content: flex-end;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 350;
+}
+
+.login_page{
     background-color: #B9E5FB;
 }
 
@@ -67,7 +92,31 @@ html{
     height: 17rem;
     width: 25rem;
     border-radius: 0 0 0.2rem 0.2rem;
-    z-index: 60
-;
 }
 
+.landing_page-header{
+    display: flex;
+    width: 100vw;
+
+}
+
+.landing_page-title{
+    display: flex;
+    width: 7vw;
+    padding: 0 1rem;
+}
+
+.landing_page-links{
+    display: flex;
+    justify-content: flex-end;
+    width: 93vw;
+    padding: 0 1rem;
+
+}
+
+.line{
+    display: flex;
+    width: 100vw;
+    border: 0.1px solid black;
+    height: 0;
+}

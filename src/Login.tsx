@@ -5,10 +5,12 @@ import sky_logo_login from "./svg/sky_logo_login.svg"
 import './App.css';
 import {useForm} from "@mantine/form";
 import {Group, PasswordInput, TextInput, Button} from "@mantine/core";
-import LandingPage from "./Landing";
+
+import {useNavigate} from "react-router-dom";
 
 function Login() {
-    //
+    const navigate = useNavigate();
+
     const form = useForm({
         initialValues: {
             email: '',
@@ -28,65 +30,68 @@ function Login() {
                 (value !== values.confirmEmail ? 'Wrong Email' : null) : 'Invalid email'),
             password: (value, values) =>
                 value !== values.confirmPassword ? 'Wrong Password' : null,
+
         },
+
     });
 
-    return (
-        <div>
-            <div>
-                <div className={"vector"}>
-                    <img className={"vector-left"} alt={""} src={vector_left}/>
-                    <img className={"vector-right"} alt={""} src={vector_right}/>
-                </div>
+    const handleClick = () => {
+        navigate('/landing');
+    };
 
-                <div>
-                    <div className={"central_container"}>
-                        <img className={"agent_vector"} alt={""} src={agent}/>
-                        <img className={"login_logo"} alt={""} src={sky_logo_login}/>
-                        <span className={"login_area"}>
+
+    return (
+        <div className={"login_page"}>
+            <div className={"vector"}>
+                <img className={"vector-left"} alt={""} src={vector_left}/>
+                <img className={"vector-right"} alt={""} src={vector_right}/>
+            </div>
+
+            <div>
+                <div className={"central_container"}>
+                    <img className={"agent_vector"} alt={""} src={agent}/>
+                    <img className={"login_logo"} alt={""} src={sky_logo_login}/>
+                    <span className={"login_area"}>
                             <div className={"form_header"}>Login</div>
                             <div className={"form_content"}>
-                                <form onSubmit={form.onSubmit((values) => <LandingPage/>)}>
-                                <TextInput
-                                    required
-                                    style={{cursor:"pointer"}}
-                                    mt="md"
-                                    label="Email Address"
-                                    placeholder="Email Address"
-                                    {...form.getInputProps('email')}/>
+                                <form onSubmit={form.onSubmit(() => handleClick())}>
+                                    <TextInput
+                                        required
+                                        mt="md"
+                                        label="Email Address"
+                                        placeholder="Email Address"
+                                        {...form.getInputProps('email')}/>
 
-                                <PasswordInput
-                                    required
-                                    mt="md"
-                                    label="Password"
-                                    placeholder="Password"
-                                    {...form.getInputProps('password')} />
+                                    <PasswordInput
+                                        required
+                                        mt="md"
+                                        label="Password"
+                                        placeholder="Password"
+                                        {...form.getInputProps('password')} />
 
+                                    <Group
+                                        position="right"
+                                        mt="md"
+                                    >
+                                            <Button
+                                                size="xs"
+                                                type="submit"
+                                            >
+                                                Login
+                                            </Button>
+                                    </Group>
 
-                                <Group
-                                    position="right"
-                                    mt="md"
-                                >
-                                        <Button
-                                            size="xs"
-                                            type="submit"
-                                        >
-                                            Submit
-                                        </Button>
-                                </Group>
-
-                                <Group
-                                    position="right"
-                                >
-                                <a href={"/"} style={{fontSize: 14}}>
-                                    Forgot password?
-                                </a>
-                                </Group>
+                                    <Group
+                                        position="right"
+                                    >
+                                    <a href={"/"} style={{fontSize: 14}}>
+                                        Forgot password?
+                                    </a>
+                                    </Group>
 
                             </form>
                             </div>
                         </span>
-                    </div>
                 </div>
             </div>
         </div>
