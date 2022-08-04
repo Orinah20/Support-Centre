@@ -188,6 +188,7 @@ body{
     flex-direction: column;
     align-items: center;
     width: 100%;
+    align-self: flex-start;
 }
 
 .landing_page-details{
@@ -208,6 +209,8 @@ body{
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0.5rem;
     padding-top: 0.5rem;
+    position: sticky;
+    z-index: 20;
 }
 
 .autocomplete_input{

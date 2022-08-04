@@ -4,8 +4,25 @@ import top_vector from "./svg/Landing Page/top_vector.svg";
 import left_vector from "./svg/Landing Page/left_vector.svg"
 import right_vector from "./svg/Landing Page/right_vector.svg"
 import { Accordion } from '@mantine/core';
+import {useNavigate} from "react-router-dom";
 
 function LandingPage() {
+
+    const navigate = useNavigate()
+
+    const knowledgebase = () => {
+        navigate("/knowledgebase")
+    }
+
+    const viewTickets = () => {
+        navigate("/knowledgebase")
+    }
+
+    const createNew = () => {
+        navigate("/knowledgebase")
+    }
+
+
     return (
         <div>
             <Header/>
@@ -13,10 +30,10 @@ function LandingPage() {
                 <div className={"landing_page-header"}>
                     <div className={"landing_page-title"}>Help Centre</div>
                     <div className={"landing_page-links"}>
-                        <div><button className={"landing_page-knowledgeBase"}>Knowledge Base</button></div>
-                        <div><button className={"landing_page-viewTickets"}>View Tickets</button></div>
+                        <div><button onClick={knowledgebase} className={"landing_page-knowledgeBase"}>Knowledge Base</button></div>
+                        <div><button onClick={viewTickets} className={"landing_page-viewTickets"}>View Tickets</button></div>
                         <div className={"landing_page-buttonContainer"}>
-                            <button className={"landing_page-createNew"}>Create New Ticket</button>
+                            <button onClick={createNew} className={"landing_page-createNew"}>Create New Ticket</button>
                         </div>
                     </div>
                 </div>
