@@ -1,7 +1,7 @@
-import vector_left from './svg/vector_left.svg';
-import vector_right from './svg/vector_right.svg';
-import agent from './svg/agent.svg'
-import sky_logo_login from "./svg/sky_logo_login.svg"
+import vector_left from './svg/Login/vector_left.svg';
+import vector_right from './svg/Login/vector_right.svg';
+import agent from './svg/Login/agent.svg'
+import sky_logo_login from "./svg/Login/sky_logo_login.svg"
 import './App.css';
 import {useForm} from "@mantine/form";
 import {Group, PasswordInput, TextInput, Button} from "@mantine/core";
