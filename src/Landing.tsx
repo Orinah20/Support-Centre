@@ -15,13 +15,12 @@ function LandingPage() {
     }
 
     const viewTickets = () => {
-        navigate("/knowledgebase")
+        navigate("/viewTickets")
     }
 
     const createNew = () => {
-        navigate("/knowledgebase")
+        navigate("/createNew")
     }
-
 
     return (
         <div>

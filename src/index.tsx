@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import LandingPage from "./Landing";
+import ViewTickets from "./View_Tickets";
+import CreateNew from "./Create_New_Ticket";
+import KnowledgeBase from "./Knowledge_Base";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -14,8 +17,11 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App/>}/>
+                <Route index element={<App/>}/>
                 <Route path="landing" element={<LandingPage/>}/>
+                <Route path="knowledgebase" element={<KnowledgeBase/>}/>
+                <Route path="createNew" element={<CreateNew/>}/>
+                <Route path="viewTickets" element={<ViewTickets/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
