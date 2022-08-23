@@ -1,12 +1,21 @@
 import Header from "./Header";
 
-function viewTickets() {
+function ViewTickets() {
     return (
         <div>
             <Header/>
-            View Tickets
+            <div className={"view_tickets-content"}>
+                <div className={"view_tickets-content--header"}>
+                    <div>Back</div>
+                    <div>Tickets</div>
+                    <button>Create Ticket</button>
+                </div>
+                <div className={"line"}></div>
+
+            </div>
+
         </div>
     )
 }
 
-export default viewTickets
+export default ViewTickets

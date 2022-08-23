@@ -129,7 +129,6 @@ function LandingPage() {
                                     <Accordion.Panel>Colors, fonts, shadows and many other parts are customizable to fit your design needs. Colors, fonts, shadows and many other parts are customizable to fit your design needs</Accordion.Panel>
                                 </Accordion.Item>
 
-
                                 <Accordion.Item value="customizations11">
                                     <Accordion.Control>Customization</Accordion.Control>
                                     <Accordion.Panel>Colors, fonts, shadows and many other parts are customizable to fit your design needs. Colors, fonts, shadows and many other parts are customizable to fit your design needs</Accordion.Panel>

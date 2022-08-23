@@ -4,13 +4,31 @@
 
 }
 
+::-webkit-scrollbar {
+    width: 0.3rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #606060;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
 body{
     overflow: hidden;
 }
 
 *{
     font-family: Inter, sans-serif;
-    font-weight: 500;
 }
 
 .header{
@@ -18,7 +36,8 @@ body{
     width: 100vw;
     background-color: #003051;
     display: flex;
-
+    position: sticky;
+    top: 0;
 }
 
 .header_logo, .header_information{
@@ -44,6 +63,158 @@ body{
 
 .header_information div{
     font-size: 0.875rem;
+}
+
+.profile_page-content{
+    height: 100vh;
+    padding: 0.5rem 1rem;
+    background-color: #FAFBFC;
+    overflow: scroll;
+}
+
+.profile-back_arrow{
+    margin: 0 0.25rem;
+}
+
+.profile-back_arrow:hover{
+    background-color: #AFCAD6;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.profile_header-description{
+    display: flex;
+    align-items: center;
+    margin: 0.1rem 0 ;
+}
+
+.profile_page-breadcrumbs{
+    padding: 0.5rem 2rem;
+}
+
+.profile_page-containers{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-page_left,.profile-page_right{
+    display: flex;
+    margin: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 0.06rem solid #000000;
+    background-color: #ffffff;
+}
+
+.profile-page_left{
+    flex-direction: column;
+    align-items: center;
+    height: 370px;
+    width: 305px;
+    line-height: 1.5rem;
+    font-size: 15px;
+}
+
+.profile-avatar{
+    width: 175px;
+    height: 175px;
+}
+
+.profile-buttons{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+
+}
+
+.profile-personal_information--link,.profile-change_password--link{
+    height: 30px;
+    margin: 0.2rem 0;
+    border-radius: 0.2rem;
+}
+
+.profile-personal_information,.profile-change_password{
+    font-size: 0.95rem;
+    line-height: 2rem;
+    padding: 0 1rem;
+}
+
+.profile-personal_information--link:hover,
+.profile-change_password--link:hover{
+    background-color: #B9E5FB;
+}
+
+.profile-page_right{
+    flex-direction: column;
+    height: fit-content;
+    width: 870px;
+}
+
+.profile-outlet_header{
+    margin-top: 0.5rem;
+    padding: 0.25rem 0 0.25rem 1.3rem;
+}
+
+.upper-profile_outlet, .lower-profile_outlet{
+    width: 100%;
+    display: flex;
+    padding-bottom: 0.5rem;
+}
+
+.profile-container_left{
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+    width: 45%;
+}
+
+.profile-container_left > div, .profile-container_right > div{
+    padding-bottom: 1rem;
+    font-size: 15px;
+}
+
+.profile-container_right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.guideline-header{
+    padding: 0.3rem 1rem;
+    font-size: 1rem;
+}
+
+.password-profile{
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+    width: 50%;
+}
+
+.guidelines-list{
+    padding: 0.5rem 0;
+}
+
+.password-change_guidelines{
+    display: flex;
+    background-color: #C8E0E9;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    margin: 1rem 0.5rem;
+    font-size: 0.9rem;
+    overflow: auto;
+}
+
+ul{
+    margin-block-start: 0.2rem;
+    padding-inline-start: 1.2rem;
+}
+
+li{
+    padding: 0.5rem 0;
 }
 
 .login_page{
@@ -125,14 +296,13 @@ body{
 
 .landing_page-header{
     display: flex;
-    width: 100vw;
     margin-bottom: 0.313rem;
 }
 
 .landing_page-title{
     display: flex;
     align-items: flex-end;
-    width: 10vw;
+    width: 10%;
     padding: 0 3rem;
 }
 
@@ -140,8 +310,8 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    width: 77vw;
-    padding: 0 1rem;
+    width: 90%;
+    padding: 0 2rem;
 }
 
 .landing_page-knowledgeBase,
@@ -250,3 +420,142 @@ body{
     width: 100%;
 }
 
+.navbar{
+    height: 100%;
+    width: 22%;
+    background-color: #ebeff2;
+}
+
+.navbar_header{
+    display: flex;
+    background-color: #325C77;
+    padding: 0.5rem 0;
+}
+
+.navbar_header-icon{
+    margin-left: 0.7rem;
+    padding: 2px;
+}
+
+.navbar_header-icon:hover{
+    background-color: #003051;
+    border-radius: 15px;
+    color: black;
+}
+
+.navbar_header-name{
+    padding-left: 0.3rem;
+    color: #e5f5ff;
+    /*display: flex;*/
+    /*align-items: center;*/
+    line-height: 1.5625rem;
+}
+
+.navbar_content{
+    display: flex;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+}
+
+.navbar_content-test{
+    background-color: #AFCAD6;
+    padding: 0.4rem 0.7rem;
+    margin: 0 0.3rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+
+}
+
+.knowledge_base{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.knowledge_base-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.knowledge_base-header{
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.3rem;
+}
+
+.knowledge_base-header__name{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 20%;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+}
+
+.knowledge_base-header__links{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 80%;
+    padding: 0 2.2rem;
+}
+
+.knowledge_base-header__links div{
+    padding-left: 0.5rem;
+}
+
+.knowledge_base-content__container{
+    padding: 0.25rem 0;
+}
+
+.knowledge_base-search{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 0.25rem;
+}
+
+.knowledge_base-autocomplete{
+    font-size: 0.875rem;
+    width: 20rem;
+}
+
+.view_tickets-content--header{
+    display: flex;
+    flex-direction: row;
+}
+
+.create_tickets{
+    height: 100vh;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.createNew-content{
+    padding: 1rem;
+}
+
+.createNew-main_content{
+    display: flex;
+}
+
+.createNew-left_content,.createNew-right_content{
+    display: flex;
+    flex-direction: column;
+}
+
+.createNew-left_content{
+    width: 60%;
+}
+
+.createNew-dropdown{
+    display: flex;
+}
+
+.createNew-dropdown_left,.createNew-dropdown_right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding:0 1rem;
+}

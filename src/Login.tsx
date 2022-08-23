@@ -5,7 +5,6 @@ import sky_logo_login from "./svg/Login/sky_logo_login.svg"
 import './App.css';
 import {useForm} from "@mantine/form";
 import {Group, PasswordInput, TextInput, Button} from "@mantine/core";
-
 import {useNavigate} from "react-router-dom";
 
 function Login() {
@@ -38,7 +37,6 @@ function Login() {
     const handleClick = () => {
         navigate('/landing');
     };
-
 
     return (
         <div className={"login_page"}>
