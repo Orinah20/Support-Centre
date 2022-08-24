@@ -17,7 +17,7 @@ function Header() {
     }
 
     return (
-        <div>
+        <div className={"overall_header"}>
             <div className={"header"}>
                 <img className={"header_logo"} alt={""} src={sky_header}/>
                 <div className={"header_information"}>

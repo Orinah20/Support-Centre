@@ -526,27 +526,44 @@ li{
     flex-direction: row;
 }
 
+.createNew-header{
+    padding: 0 1rem;
+}
+
 .create_tickets{
-    height: 100vh;
+    height: 87vh;
     overflow: auto;
     overflow-x: hidden;
 }
 
 .createNew-content{
-    padding: 1rem;
+    padding: 0.5rem 2rem;
 }
 
 .createNew-main_content{
     display: flex;
 }
 
-.createNew-left_content,.createNew-right_content{
+.createNew-left_content{
     display: flex;
     flex-direction: column;
+    width: 60%;
 }
 
-.createNew-left_content{
-    width: 60%;
+.createNew-right_content{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.createNew-knowledgeBase{
+    position: fixed;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    background: #B9E5FB;
+    width: 35%;
 }
 
 .createNew-dropdown{
@@ -559,3 +576,22 @@ li{
     width: 50%;
     padding:0 1rem;
 }
+
+.textEditor,.dropzone{
+    padding: 1rem 1rem;
+}
+
+.textEditor-label{
+    font-size: 0.85rem;
+    padding-bottom: 0.25rem;
+}
+
+.createNew-header_title{
+    padding: 0.1rem 2rem;
+    margin-top: 0.5rem;
+}
+
+.createNew-breadcrumbs{
+    padding: 0.1rem 3rem;
+}
+
