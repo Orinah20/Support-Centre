@@ -38,14 +38,24 @@ body{
     display: flex;
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 .header_logo, .header_information{
     padding: 0.5rem 1rem;
 }
 
-.header_avatar{
-    padding-left: 0.5rem;
+.header-information_name{
+    padding: 0 0.25rem;
+}
+
+.header-avatar:hover{
+    background-color: #15242a;
+    border-radius: 100%;
+}
+
+.header-avatar{
+    cursor: pointer;
 }
 
 .avatar_placeholder:hover{
@@ -102,7 +112,7 @@ body{
     margin: 0.5rem 2rem;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
-    border: 0.06rem solid #000000;
+    border: 0.06rem solid #d2d2d2;
     background-color: #ffffff;
 }
 
@@ -154,7 +164,7 @@ body{
 
 .profile-outlet_header{
     margin-top: 0.5rem;
-    padding: 0.25rem 0 0.25rem 1.3rem;
+    padding: 0.25rem 0 0.25rem 1rem;
 }
 
 .upper-profile_outlet, .lower-profile_outlet{
@@ -354,7 +364,7 @@ li{
 .line{
     display: flex;
     width: 100%;
-    border-top: 0.005rem solid black;
+    border-top: 0.005rem solid #d2d2d2;
 }
 
 .landing_page-content{
@@ -521,6 +531,18 @@ li{
     width: 20rem;
 }
 
+.viewTickets{
+    height: 90vh;
+    width: 100vw;
+}
+
+.view_tickets-content{
+    height: 80%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+}
+
 .view_tickets-content--header{
     display: flex;
     flex-direction: row;
@@ -532,7 +554,7 @@ li{
 
 .create_tickets{
     height: 87vh;
-    overflow: auto;
+    overflow: scroll;
     overflow-x: hidden;
 }
 
@@ -561,9 +583,11 @@ li{
 .createNew-knowledgeBase{
     position: fixed;
     padding: 1rem;
+    overflow: hidden;
     border-radius: 0.2rem;
-    background: #B9E5FB;
+    background: #E7EEF5;
     width: 35%;
+    height: 75%;
 }
 
 .createNew-dropdown{
@@ -587,11 +611,37 @@ li{
 }
 
 .createNew-header_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0.1rem 2rem;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
 }
 
 .createNew-breadcrumbs{
-    padding: 0.1rem 3rem;
+    padding: 0.5rem 3rem 0 3rem;
 }
 
+.createNew-accordion{
+    height: 100%;
+}
+
+.createNew-close{
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 5rem;
+}
+
+.createNew-close:hover{
+    background-color: #8dafbd;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.createNew-knowledgeBase_header{
+    padding: 0.25rem 1rem;
+}
+
+.createNew-accordion{
+    padding: 0.5rem 1rem;
+}

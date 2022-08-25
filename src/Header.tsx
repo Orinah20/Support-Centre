@@ -21,8 +21,8 @@ function Header() {
             <div className={"header"}>
                 <img className={"header_logo"} alt={""} src={sky_header}/>
                 <div className={"header_information"}>
-                    <div>Busta</div>
-                    <div className={"avatar "}>
+                    <div className={"header-information_name"}>Busta</div>
+                    <div className={"header-avatar "}>
                         <Menu width={250} position="bottom-end" offset={-5}>
                             <Menu.Target>
                                 <Avatar

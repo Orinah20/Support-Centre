@@ -4,7 +4,7 @@ import top_vector from "./svg/Landing Page/top_vector.svg";
 import left_vector from "./svg/Landing Page/left_vector.svg"
 import right_vector from "./svg/Landing Page/right_vector.svg"
 import { Accordion } from '@mantine/core';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
 
