@@ -8,7 +8,6 @@ import close from "./svg/Create_New/bi_x.svg"
 import {useNavigate} from "react-router-dom";
 
 function CreateNew() {
-
     const items = [
         {title: 'Home', href: '/landing'},
         {title: 'Create New Ticket'},
@@ -63,7 +62,6 @@ function CreateNew() {
                         >{items}</Breadcrumbs>
                     </div>
                     <div className={"createNew-content"}>
-
                         <div className={"createNew-main_content"}>
                             <div className={"createNew-left_content"}>
                                 <div className={"createNew-dropdown"}>

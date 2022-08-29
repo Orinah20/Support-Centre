@@ -20,7 +20,7 @@ function Profile() {
 
     const items = [
         {title: 'Home', href: '/landing'},
-        {title: 'Profile', href: '/profile'},
+        {title: 'Profile', href: '/profile/personal_info'},
     ].map((item, index) => (
         <Anchor href={item.href} key={index}>
             {item.title}

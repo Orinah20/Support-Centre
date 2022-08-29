@@ -1,7 +1,6 @@
 @font-face {
     font-family: "Inter";
     src: url("./Fonts/Inter/static/Inter-Medium.ttf") format("truetype");
-
 }
 
 ::-webkit-scrollbar {
@@ -29,6 +28,7 @@ body{
 
 *{
     font-family: Inter, sans-serif;
+    font-size: 0.96rem;
 }
 
 .header{
@@ -47,6 +47,7 @@ body{
 
 .header-information_name{
     padding: 0 0.25rem;
+    margin-top: 0.25rem;
 }
 
 .header-avatar:hover{
@@ -532,20 +533,144 @@ li{
 }
 
 .viewTickets{
-    height: 90vh;
-    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    margin: 0 1.5rem
 }
 
 .view_tickets-content{
-    height: 80%;
+    max-height: 70vh;
     overflow: auto;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
+    padding: 0 1.5rem;
 }
 
 .view_tickets-content--header{
     display: flex;
     flex-direction: row;
+    height: 5vh;
+}
+
+.viewTicket-filters div{
+    line-height: 2.5rem;
+}
+
+.viewTickets-upper_header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.viewTickets-lower_header{
+    display: flex;
+    height: 5%;
+    padding: 0.25rem 2rem;
+    justify-content: center;
+}
+
+.viewTicket-filters{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.viewTickets-pagination{
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+    align-items: center;
+}
+
+.viewTickets-pagination button{
+    margin: 0 0.5rem;
+    background-color: #C8E0E9;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.25rem;
+    width: 1.7rem;
+    height: 1.5rem;
+    line-height: 1.1rem;
+}
+
+.viewTickets-pagination button:hover{
+    background-color: #325C77;
+    color: white;
+}
+
+.viewTickets-input_container{
+    margin-left: 2.5rem;
+}
+
+.viewTickets-input{
+    width: 3rem;
+    line-height: 1.5rem;
+    border: 1px solid #d2d2d2;
+    border-radius: 0.2rem;
+    margin-left: 0.5rem;
+}
+
+.viewTickets-select{
+    border: 0.1rem solid #d2d2d2;
+    border-radius: 0.25rem;
+    outline: none;
+    padding: 0.25rem;
+    margin: 0 1.5rem 0 0.25rem;
+    font-size: 0.9rem;
+    background-color: #f8f8f8;
+}
+
+.viewTickets-infoName{
+    padding: 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+.viewTickets-back:hover{
+    background-color: #8dafbd;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.viewTickets-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: #AFCAD6;
+}
+
+.viewTickets-footer_content{
+    display: flex;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.viewTickets-open,
+.viewTickets-closed,
+.viewTickets-resolved,
+.viewTickets-pending{
+    margin: 0 2rem;
+    border-radius: 0.2rem;
+    padding: 0.1rem 1rem;
+}
+
+.viewTickets-open{
+    background-color: #FFE599;
+}
+
+.viewTickets-closed{
+    background-color: #CC3000;
+    color: #ffffff;
+}
+.viewTickets-resolved{
+    background-color: #003047;
+    color: #ffffff;
+
+}
+.viewTickets-pending{
+    background-color: #21AD75;
 }
 
 .createNew-header{
@@ -556,6 +681,29 @@ li{
     height: 87vh;
     overflow: scroll;
     overflow-x: hidden;
+}
+
+.createTicket-button{
+    padding: 0.25rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+}
+
+.createButton{
+    background: #003051;
+    color: #ffffff;
+    font: inherit;
+    padding: 0.25rem 1.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    font-size: 0.9rem;
+}
+
+.createButton:hover{
+    background-color: #B9E5FB;
+    cursor: pointer;
+    color: #000000;
 }
 
 .createNew-content{
