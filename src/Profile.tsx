@@ -2,7 +2,6 @@ import Header from "./Header";
 import {Breadcrumbs, Anchor} from '@mantine/core';
 import avatar from "./svg/Profile/tabler_user-circle.svg"
 import {NavLink, Outlet, useNavigate} from "react-router-dom";
-import {useEffect} from "react";
 import back from "./svg/Profile/eva_arrow-back-fill.svg"
 
 function Profile() {
@@ -20,7 +19,7 @@ function Profile() {
 
     const items = [
         {title: 'Home', href: '/landing'},
-        {title: 'Profile', href: '/profile/personal_info'},
+        {title: 'Profile', href: '/profile/personal-info'},
     ].map((item, index) => (
         <Anchor href={item.href} key={index}>
             {item.title}
@@ -34,8 +33,6 @@ function Profile() {
         navigate(-1)
     }
 
-    useEffect(() => {
-    }, [])
 
     return (
         <div>

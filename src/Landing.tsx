@@ -11,15 +11,15 @@ function LandingPage() {
     const navigate = useNavigate()
 
     const knowledgebase = () => {
-        navigate("/knowledgebase")
+        navigate("/knowledge-base")
     }
 
     const viewTickets = () => {
-        navigate("/viewTickets")
+        navigate("/view-tickets")
     }
 
     const createNew = () => {
-        navigate("/createNew")
+        navigate("/create-new")
     }
 
     return (

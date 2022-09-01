@@ -74,6 +74,11 @@ function Login() {
                                             <Button
                                                 size="xs"
                                                 type="submit"
+                                                styles={{
+                                                    label: {
+                                                        fontWeight: 400
+                                                    }
+                                                }}
                                             >
                                                 Login
                                             </Button>

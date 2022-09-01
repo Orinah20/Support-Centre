@@ -51,7 +51,7 @@ function changePassword() {
 
                 <div className={"password-change_guidelines"}>
                     <div className={"guideline-header"}> New Password Requirements</div>
-                    <div className={"line"}/>
+                    <div className={"line-dark"}/>
                     <div className={"guidelines-list"}>
                         <ScrollArea style={{height: "inherit", width: "inherit"}}>
                             <ul>

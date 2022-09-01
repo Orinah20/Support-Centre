@@ -13,7 +13,7 @@ function Header() {
     }
 
     const profile =() => {
-        navigate("/profile/personal_info")
+        navigate("/profile/personal-info")
     }
 
     return (

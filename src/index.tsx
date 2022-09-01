@@ -11,6 +11,7 @@ import KnowledgeBase from "./Knowledge_Base";
 import Profile from "./Profile";
 import PersonalInfo from "./PersonalInfo";
 import ChangePassword from "./Change_Password";
+import TicketView from "./TicketView";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -22,14 +23,14 @@ root.render(
             <Routes>
                 <Route index element={<App/>}/>
                 <Route path="landing" element={<LandingPage/>}/>
-                <Route path="knowledgebase" element={<KnowledgeBase/>}/>
-                <Route path="createNew" element={<CreateNew/>}/>
-                <Route path="viewTickets" element={<ViewTickets/>}/>
+                <Route path="knowledge-base" element={<KnowledgeBase/>}/>
+                <Route path="create-new" element={<CreateNew/>}/>
+                <Route path="view-tickets" element={<ViewTickets/>}/>
                 <Route path="profile" element={<Profile/>}>
-                    <Route path="personal_info" element={<PersonalInfo/>}></Route>
-                    <Route path="change_password" element={<ChangePassword/>}></Route>
+                    <Route path="personal-info" element={<PersonalInfo/>}></Route>
+                    <Route path="change-password" element={<ChangePassword/>}></Route>
                 </Route>
-
+                <Route path="ticket-view" element={<TicketView/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

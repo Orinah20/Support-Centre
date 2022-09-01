@@ -11,11 +11,11 @@ function KnowledgeBase() {
     }
 
     const viewTickets = () => {
-        navigate("/viewTickets")
+        navigate("/view-tickets")
     }
 
     const createNew = () => {
-        navigate("/createNew")
+        navigate("/create-new")
     }
 
     return (

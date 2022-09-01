@@ -1,10 +1,20 @@
 import Header from "./Header";
 import {RichTextEditor} from '@mantine/rte';
-import {Accordion, Anchor, Breadcrumbs, Button, Group, Select, Text, ScrollArea, useMantineTheme} from '@mantine/core';
+import {
+    Accordion,
+    Anchor,
+    Breadcrumbs,
+    Button,
+    Group,
+    Select,
+    Text,
+    ScrollArea,
+    useMantineTheme,
+    CloseButton
+} from '@mantine/core';
 import {Dropzone, IMAGE_MIME_TYPE} from "@mantine/dropzone";
 import {IconPhoto, IconUpload, IconX} from "@tabler/icons";
 import {useState} from "react";
-import close from "./svg/Create_New/bi_x.svg"
 import {useNavigate} from "react-router-dom";
 
 function CreateNew() {
@@ -36,7 +46,8 @@ function CreateNew() {
                 <div className={"createNew-header"}>
                     <div className={"createNew-header_title"}>
                         <span>Create New Ticket</span>
-                        <img alt={""} className={"createNew-close"} src={close} onClick={handleClose}/>
+                        <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={18} onClick={handleClose}/>
+                        {/*<img alt={""}  src={close} */}
                     </div>
                     <div className={"line"}/>
                 </div>
