@@ -46,7 +46,7 @@ function CreateNew() {
                 <div className={"createNew-header"}>
                     <div className={"createNew-header_title"}>
                         <span>Create New Ticket</span>
-                        <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={18} onClick={handleClose}/>
+                        <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={20} onClick={handleClose}/>
                         {/*<img alt={""}  src={close} */}
                     </div>
                     <div className={"line"}/>

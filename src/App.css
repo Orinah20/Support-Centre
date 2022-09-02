@@ -4,7 +4,7 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0.3rem;
+    width: 0.35rem;
 }
 
 .flex-row {
@@ -824,9 +824,11 @@ li {
 
 .ticket-nav {
     display: flex;
+    justify-content: space-between;
     padding: 0.25rem 1rem;
     height: 1.5rem;
     background-color: #F5F5F5;
+    align-items: center;
 }
 
 .ticket-breadcrumb {
@@ -836,6 +838,7 @@ li {
 .ticket-content {
     padding: 0.25rem 1rem;
     background-color: #FAFBFC;
+    height: 87vh;
 }
 
 .ticket-content_container {
@@ -844,8 +847,8 @@ li {
 }
 
 .ticket-right, .ticket-left {
-    padding: 0.25rem 0;
-    height: 80vh;
+    height: 81vh;
+    margin: 0.1rem;
 }
 
 .ticket-left {
@@ -885,13 +888,63 @@ li {
 }
 
 .ticket-chat_header{
-    background-color: #C8E0E9;
-    height: 3.2rem;
     display: flex;
+    justify-content: space-between;
+    background-color: #C8E0E9;
+    min-height: 2rem;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0.25rem 1.5rem;
+    border-radius: 0.2rem;
 }
 
 .ticket-chat_content{
-    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff;
+    height: 100%;
+    overflow: auto;
+}
+
+.chat-header_left> span{
+    padding: 0.25rem 1rem;
+}
+
+.chat-header_status{
+    background-color: #FFE599;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+
+.ticket_description{
+    width: 100%;
+    max-height: 40%;
+    background-color: #eaeaea;
+    overflow: auto;
+    border: 0.1rem solid #cecece;
+    border-radius: 0.2rem;
+}
+
+.ticket_description > div{
+    padding: 0.5rem 1rem;
+}
+
+.ticket-richText{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 30%;
+}
+
+.ticket-chats{
+    padding: 2rem 1rem;
+    height: 70%;
+}
+
+.ticket-newChat{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    z-index: 50;
 }

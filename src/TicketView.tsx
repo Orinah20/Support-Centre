@@ -1,14 +1,56 @@
 import Header from "./Header";
-import {Accordion, Anchor, Breadcrumbs, CloseButton} from "@mantine/core";
+import {Accordion, Anchor, Breadcrumbs, Button, CloseButton, createStyles, Group, TextInput} from "@mantine/core";
 import {useNavigate} from "react-router-dom";
 import avatar from "./svg/Tickets/Avatar.svg"
+import {useState} from "react";
+import {RichTextEditor} from "@mantine/rte";
+import { openModal, closeAllModals } from '@mantine/modals';
+
 
 function TicketView() {
+    const useStyles = createStyles((theme) => ({
+        root: {
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+            borderRadius: theme.radius.sm,
+        },
+
+        item: {
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
+            border: '1px solid transparent',
+            position: 'relative',
+            zIndex: 0,
+            transition: 'transform 150ms ease',
+
+            '&[data-active]': {
+                transform: 'scale(1.03)',
+                backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
+                boxShadow: theme.shadows.md,
+                borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
+                borderRadius: theme.radius.md,
+                zIndex: 1,
+            },
+        },
+
+        chevron: {
+            '&[data-rotate]': {
+                transform: 'rotate(-90deg)',
+            },
+        },
+    }));
+
+    const onChange = () => {
+
+    }
+
+    const {classes} = useStyles();
+
     const navigate = useNavigate();
 
     const handleClose = () => {
         navigate(-1)
     }
+
+    const [value, setValue] = useState<string[]>([]);
 
     const items = [
         {title: 'Home', href: '/landing'},
@@ -25,13 +67,76 @@ function TicketView() {
             <Header/>
             <div className={"ticket"}>
                 <div className={"ticket-nav"}>
-                    <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={18}
-                                 onClick={handleClose}/>
-                    <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={18}
-                                 onClick={handleClose}/>
+                    <div className={"flex-row"}>
+                        <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={18}
+                                     onClick={handleClose}/>
+                        <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={18}
+                                     onClick={handleClose}/>
+                    </div>
+                    <Group position="center">
+                        <Button
+                            mr={"sm"}
+                            type="submit"
+                            styles={{
+                                root: {
+                                    height: "1.4rem",
+                                    backgroundColor: "#003051",
+                                    font: "inherit",
+                                }
+                            }}
+                            onClick={() => {
+                                openModal({
+                                    title: 'Subscribe to newsletter',
+                                    children: (
+                                        <>
+                                            <TextInput label="Your email" placeholder="Your email" data-autofocus />
+                                            <Button fullWidth onClick={closeAllModals} mt="md">
+                                                Submit
+                                            </Button>
+                                        </>
+                                    ),
+                                });
+                            }}
+                        >
+                            Close Issue
+                        </Button>
+
+                        <Button
+                            onClick={() => {
+                                openModal({
+                                    title: 'Subscribe to newsletter',
+                                    children: (
+                                        <>
+                                            <TextInput label="Your email" placeholder="Your email" data-autofocus />
+                                            <Button fullWidth onClick={closeAllModals} mt="md">
+                                                Submit
+                                            </Button>
+                                        </>
+                                    ),
+                                });
+                            }}
+                        >
+                            Open content modal
+                        </Button>
+                    </Group>
+
+                    <Button
+                        mr={"sm"}
+                        type="submit"
+                        styles={{
+                            root: {
+                                height: "1.4rem",
+                                backgroundColor: "#003051",
+                                font: "inherit",
+                            }
+                        }}
+                    >
+                        Close Issue
+                    </Button>
                 </div>
 
                 <div className={"ticket-content"}>
+
                     <div className={"ticket-breadcrumb"}>
                         <Breadcrumbs
                             styles={{
@@ -55,32 +160,111 @@ function TicketView() {
 
                     <div className={"ticket-content_container"}>
                         <div className={"ticket-left"}>
-                            <div className={"ticket-chat_header"}>1</div>
-                            <div className={"ticket-chat_content"}>
-                                <div>3</div>
-                                <div>4</div>
-                                <div>5</div>
+                            <div className={"ticket-chat_header"}>
+                                <div>Unauthorised Access</div>
+                                <div className={"chat-header_left"}>
+                                    <span>Created on : 31st January 2020 - 14:15:06</span>
+                                    <span className={"chat-header_status"}>Open</span>
+                                </div>
                             </div>
+                            <div className={"ticket-chat_content"}>
+                                <div className={"ticket-richText"}>
+                                    <RichTextEditor
+                                        readOnly
+                                        controls={[]}
+                                        value={"number"}
+                                        styles={{
+                                            toolbar: {
+                                                display: "none"
+                                            },
+                                            root: {
+                                                maxHeight: "95%",
+                                                backgroundColor: "#E7EEF5",
+                                                padding: "0.5rem",
+                                                overflow: "auto"
+                                            }
+                                        }}
+                                        onChange={onChange}
+                                    />
+                                </div>
+                                <div className={"ticket-chats"}>
+                                    <div>5</div>
+                                </div>
+                                <div className={"ticket-newChat"}>
+                                    <RichTextEditor
+                                        styles={{
+                                            root: {
+                                                height: "100%",
+                                                overflow: "auto",
+                                            }
+                                        }}
+                                        placeholder="Write your description here"
+                                        value={"number"}
+                                        onChange={onChange}/>
+                                    <div>
+                                        <Group
+                                            position="right"
+                                            pr="md"
+                                            mt={"xs"}
+                                        >
+                                            <Button
+                                                size="xs"
+                                                type="submit"
+                                                styles={{
+                                                    root: {
+                                                        backgroundColor: "#003051",
+                                                        font: "inherit",
+                                                        fontSize: "0.8rem",
+                                                    }
+                                                }}
+                                            >
+                                                Submit
+                                            </Button>
+                                        </Group>
+                                    </div>
+
+                                </div>
+                            </div>
+
 
                         </div>
                         <div className={"ticket-right"}>
                             <Accordion
+                                multiple value={value}
                                 radius="xs"
                                 styles={{
-                                    item: {
+                                    control: {
+                                        height: "2.5rem",
                                         backgroundColor: '#C8E0E9',
-                                        borderRadius: "0.25rem"
+                                        borderRadius: "0.2rem",
+
+                                        '&[data-active]': {
+                                            backgroundColor: '#9bafb6'
+                                        },
+                                    },
+
+                                    item: {
+                                        borderRadius: "0.25rem",
+                                        backgroundColor: '#C8E0E9',
+
+                                        '&[data-active]': {
+                                            backgroundColor: '#939393',
+                                        },
+
                                     },
                                     content: {
                                         backgroundColor: '#ffffff',
                                     }
                                 }}
                                 chevronPosition="right"
-                                variant={"default"}
-                                defaultValue={"customizations1"}>
+                                variant={"separated"}
+                                onChange={setValue}
+                                defaultValue={["customizations1"]}
+                                classNames={classes}
+                                className={classes.root}>
 
                                 <Accordion.Item value="customizations1">
-                                    <Accordion.Control>Ticket Request</Accordion.Control>
+                                    <Accordion.Control>Ticket Information</Accordion.Control>
                                     <Accordion.Panel>
                                         <div className={"accordion-data flex-row"}>
                                             <div className={"flex-column accordion-data-1"}>
@@ -102,7 +286,6 @@ function TicketView() {
                                                 <div>Critical</div>
                                             </div>
                                         </div>
-                                        <div className={"line"}/>
 
                                     </Accordion.Panel>
                                 </Accordion.Item>

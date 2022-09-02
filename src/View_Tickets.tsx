@@ -1,6 +1,6 @@
 import Header from "./Header";
 import {Anchor, Autocomplete, Breadcrumbs, createStyles, ScrollArea, Table} from '@mantine/core';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Footer from "./Footer";
 import {
     createColumnHelper,
@@ -23,7 +23,6 @@ interface Ticket {
     assigned_agent: string,
     datetime: string
 }
-
 
 function ViewTickets() {
     const useStyles = createStyles((theme) => ({
@@ -916,6 +915,8 @@ function ViewTickets() {
         }),
     ]
 
+    const [value] = useState(1)
+
     const navigate = useNavigate()
 
     const handleCreateTicket = () => {
@@ -931,35 +932,39 @@ function ViewTickets() {
     }
 
     const handleChange = (e: any) => {
+
         const page = e.target.value ? Number(e.target.value) - 1 : 0;
-        if(page < table.getPageCount()){
+        if (page < table.getPageCount()) {
             table.setPageIndex(page)
+
+        } else {
+            alert("Invalid Page")
         }
 
-       /* // get data
-        // length of data
-        // limit /page
-        // pages = math.floor(length/ limit)
+        /* // get data
+         // length of data
+         // limit /page
+         // pages = math.floor(length/ limit)
 
-        const length = elements.length;
-        // const max = table.getState().pagination.pageSize - 1;
-        // const min = table.getPageCount() - table.getPageCount() + 1;
+         const length = elements.length;
+         // const max = table.getState().pagination.pageSize - 1;
+         // const min = table.getPageCount() - table.getPageCount() + 1;
 
-        // const pages = Math.max(min, Math.min(max, Number(e.target.value)));
-        const pages = Math.ceil(length / newLimit);
-        console.log(`Pages ${pages}`)
-        setValue(pages);
+         // const pages = Math.max(min, Math.min(max, Number(e.target.value)));
+         const pages = Math.ceil(length / newLimit);
+         console.log(`Pages ${pages}`)
+         setValue(pages);
 
-        const page = Number(e.target.value - 1)
+         const page = Number(e.target.value - 1)
 
-        if(page <= pages){
-            table.setPageIndex(page)
-        }
-        else{
-            table.setPageIndex(1)
-        }
-        console.log(`page - ${page}`)
-*/
+         if(page <= pages){
+             table.setPageIndex(page)
+         }
+         else{
+             table.setPageIndex(1)
+         }
+         console.log(`page - ${page}`)
+ */
     }
 
 
@@ -974,7 +979,6 @@ function ViewTickets() {
 
     const {classes, cx} = useStyles();
     const [scrolled, setScrolled] = useState(false);
-
 
     const [data] = useState(() => [...elements])
     const [sorting, setSorting] = useState<SortingState>([])
@@ -1032,7 +1036,6 @@ function ViewTickets() {
 
                                 onChange={e => {
                                     table.setPageSize(Number(e.target.value))
-
                                 }}
                             >
                                 {limit.map(pageSize => (
@@ -1102,19 +1105,24 @@ function ViewTickets() {
                             ))}
                             </thead>
                             <tbody>
-                            {table.getRowModel().rows.map(row => (
+                            {value < table.getPageCount() ?
+                                table.getRowModel().rows.map(row => (
                                 <tr
                                     onClick={ticketView}
                                     style={{
                                         cursor: "pointer"
                                     }} key={row.id}>
-                                    {row.getVisibleCells().map(cell => (
-                                        <td key={cell.id}>
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </td>
-                                    ))}
+
+                                        {row.getVisibleCells().map(cell => (
+                                                <td key={cell.id}>
+                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                </td>
+                                            ))}
                                 </tr>
-                            ))}
+                            ))
+                            :
+                                <tbody >No Data</tbody>
+                            }
                             </tbody>
                         </Table>
                     </ScrollArea>
@@ -1154,10 +1162,11 @@ function ViewTickets() {
                     <input
                         max={table.getPageCount()}
                         min={1}
-                        defaultValue={table.getState().pagination.pageIndex +1}
-                        type="number"
+                        defaultValue={""}
+                        type="text"
                         onChange={handleChange}
                         className="viewTickets-input"
+                        maxLength={table.getPageCount().toString().length}
                     />
                 </span>
 
