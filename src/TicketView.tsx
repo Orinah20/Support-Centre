@@ -1,11 +1,19 @@
 import Header from "./Header";
-import {Accordion, Anchor, Breadcrumbs, Button, CloseButton, createStyles, Group, TextInput} from "@mantine/core";
+import {
+    Accordion,
+    Anchor,
+    Breadcrumbs,
+    Button,
+    CloseButton,
+    createStyles,
+    Group,
+    Modal,
+    Textarea
+} from "@mantine/core";
 import {useNavigate} from "react-router-dom";
 import avatar from "./svg/Tickets/Avatar.svg"
 import {useState} from "react";
 import {RichTextEditor} from "@mantine/rte";
-import { openModal, closeAllModals } from '@mantine/modals';
-
 
 function TicketView() {
     const useStyles = createStyles((theme) => ({
@@ -42,6 +50,8 @@ function TicketView() {
 
     }
 
+    const [opened, setOpened] = useState(false);
+
     const {classes} = useStyles();
 
     const navigate = useNavigate();
@@ -73,70 +83,70 @@ function TicketView() {
                         <CloseButton title="Close popover" size="sm" className={"createNew-close"} iconSize={18}
                                      onClick={handleClose}/>
                     </div>
-                    <Group position="center">
-                        <Button
-                            mr={"sm"}
-                            type="submit"
+
+                    <Modal
+                        size="lg"
+                        styles={{
+                            modal: {
+                                backgroundColor: "#FAFBFC",
+                            },
+                            header: {
+                                font: "inherit",
+                                fontSize: "1.5rem",
+                            },
+                            close: {
+                                height: "40px",
+                                width: "40px",
+                            }
+                        }}
+                        centered
+                        overlayOpacity={0.55}
+                        overlayBlur={2}
+                        opened={opened}
+                        onClose={() => setOpened(false)}
+                        title="Close Issue"
+                    >
+                        <Textarea
                             styles={{
-                                root: {
-                                    height: "1.4rem",
-                                    backgroundColor: "#003051",
-                                    font: "inherit",
+                                input: {
+                                    height: "15rem"
                                 }
                             }}
-                            onClick={() => {
-                                openModal({
-                                    title: 'Subscribe to newsletter',
-                                    children: (
-                                        <>
-                                            <TextInput label="Your email" placeholder="Your email" data-autofocus />
-                                            <Button fullWidth onClick={closeAllModals} mt="md">
-                                                Submit
-                                            </Button>
-                                        </>
-                                    ),
-                                });
-                            }}
+                            placeholder="Comment"
+                            label="Your comment"
+                            size="md"
+                        />
+                        <Group
+                            position="right"
+                            pr="md"
+                            mt={"xs"}
                         >
-                            Close Issue
-                        </Button>
-
-                        <Button
-                            onClick={() => {
-                                openModal({
-                                    title: 'Subscribe to newsletter',
-                                    children: (
-                                        <>
-                                            <TextInput label="Your email" placeholder="Your email" data-autofocus />
-                                            <Button fullWidth onClick={closeAllModals} mt="md">
-                                                Submit
-                                            </Button>
-                                        </>
-                                    ),
-                                });
-                            }}
-                        >
-                            Open content modal
-                        </Button>
-                    </Group>
+                            <Button
+                                color="red"
+                                size="xs"
+                            >
+                                Close
+                            </Button>
+                        </Group>
+                    </Modal>
 
                     <Button
                         mr={"sm"}
                         type="submit"
                         styles={{
                             root: {
-                                height: "1.4rem",
+                                height: "1.5rem",
                                 backgroundColor: "#003051",
                                 font: "inherit",
                             }
                         }}
+                        onClick={() => setOpened(true)}
                     >
                         Close Issue
                     </Button>
                 </div>
 
                 <div className={"ticket-content"}>
-
                     <div className={"ticket-breadcrumb"}>
                         <Breadcrumbs
                             styles={{
